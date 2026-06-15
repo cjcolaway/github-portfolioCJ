@@ -1,0 +1,310 @@
+ <title>Christian Jake Colaway | Portfolio</title>
+  <meta name="description" content="Hi! I'm Your Name, a fresh graduate and aspiring web developer based in the Philippines." />
+  <meta name="keywords" content="portfolio, web developer, fresh graduate, HTML, CSS, JavaScript" />
+  <meta name="author" content="Christian Jake Colaway" />
+
+
+  <meta property="og:title" content="Christian Jake Colaway | Portfolio" />
+  <meta property="og:description" content="Hi! I'm Christian Jake Colaway, a 3rd year Computer Engineerng Student at Naga College Foundation Inc." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cjcolaway.github.io" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0d0d0d;
+      --bg2:      #181018;
+      --bg3:      #221520;
+      --accent:   #e879a0;
+      --accent2:  #f4a7c3;
+      --accent3:  rgba(232,121,160,0.12);
+      --text:     #f5eef2;
+      --muted:    #a889977a;
+      --muted2:   #c8a8b8;
+      --border:   rgba(232,121,160,0.12);
+      --radius:   14px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,13,13,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 0.5px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 2.5rem;
+    }
+    .logo { font-size: 18px; font-weight: 500; color: var(--accent2); letter-spacing: -0.02em; }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a { color: var(--muted2); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    nav ul a:hover { color: var(--accent2); }
+
+    
+    section { padding: 5rem 2.5rem; max-width: 900px; margin: 0 auto; }
+    .section-label { font-size: 12px; letter-spacing: 0.12em; color: var(--accent); text-transform: uppercase; margin-bottom: 0.4rem; }
+    h2.section-title { font-size: 2rem; font-weight: 500; margin-bottom: 2rem; color: var(--text); }
+    .divider { border-top: 0.5px solid var(--border); }
+
+    /* HERO */
+    #hero { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; padding-top: 2rem; }
+    .tag {
+      display: inline-block;
+      background: rgba(232,121,160,0.12);
+      color: var(--accent2);
+      border: 0.5px solid rgba(232,121,160,0.3);
+      border-radius: 99px;
+      font-size: 13px; padding: 4px 16px; margin-bottom: 1.5rem;
+    }
+    #hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 500; line-height: 1.15; margin-bottom: 1.5rem; }
+    #hero h1 span { color: var(--accent2); }
+    #hero p { font-size: 18px; color: var(--muted2); max-width: 560px; margin-bottom: 2.5rem; }
+    .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn { padding: 0.75rem 1.8rem; border-radius: 10px; font-size: 15px; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; font-family: inherit; font-weight: 500; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent2); color: #1a0a12; }
+    .btn-outline { background: transparent; border: 0.5px solid rgba(232,121,160,0.3); color: var(--accent2); }
+    .btn-outline:hover { background: var(--accent3); border-color: var(--accent); }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+    .about-text { color: var(--muted2); font-size: 16px; }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .stat-card { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+    .stat-card .num { font-size: 2rem; font-weight: 500; color: var(--accent2); }
+    .stat-card .lbl { font-size: 13px; color: var(--muted2); margin-top: 4px; }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; }
+    .skill-card { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+    .skill-card h3 { font-size: 13px; font-weight: 500; color: var(--accent); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .skill-tag { display: inline-block; background: var(--bg3); border: 0.5px solid rgba(232,121,160,0.15); border-radius: 6px; font-size: 12px; color: var(--muted2); padding: 3px 10px; margin: 3px 3px 3px 0; }
+
+    /* TIMELINE */
+    .timeline { display: flex; flex-direction: column; gap: 1.5rem; }
+    .timeline-item { display: flex; gap: 1.5rem; }
+    .tl-dot-col { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); margin-top: 6px; flex-shrink: 0; }
+    .tl-line { flex: 1; width: 1px; background: var(--border); margin-top: 4px; }
+    .tl-card { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.25rem; flex: 1; }
+    .tl-card h3 { font-size: 16px; font-weight: 500; margin-bottom: 4px; }
+    .tl-card .tl-sub { color: var(--accent2); font-size: 14px; }
+    .tl-card .tl-year { font-size: 12px; color: var(--muted2); margin-top: 4px; }
+    .tl-card p { font-size: 14px; color: var(--muted2); margin-top: 8px; }
+
+    /* PROJECTS */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+    .project-card { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.5rem; transition: border-color 0.2s, background 0.2s; }
+    .project-card:hover { border-color: rgba(232,121,160,0.5); background: var(--bg3); }
+    .project-icon { width: 42px; height: 42px; background: rgba(232,121,160,0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 20px; }
+    .project-card h3 { font-size: 16px; font-weight: 500; margin-bottom: 0.5rem; }
+    .project-card p { font-size: 14px; color: var(--muted2); margin-bottom: 1rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .proj-tag { font-size: 11px; background: rgba(232,121,160,0.1); color: var(--accent2); border: 0.5px solid rgba(232,121,160,0.25); border-radius: 4px; padding: 2px 9px; }
+
+    /* CONTACT */
+    .contact-box { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 3rem; text-align: center; }
+    .contact-box h3 { font-size: 1.5rem; font-weight: 500; color: var(--accent2); margin-bottom: 0.75rem; }
+    .contact-box p { color: var(--muted2); margin-bottom: 2rem; }
+    .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .contact-link { display: flex; align-items: center; gap: 8px; background: var(--bg3); border: 0.5px solid rgba(232,121,160,0.2); border-radius: 10px; padding: 0.65rem 1.3rem; color: var(--text); text-decoration: none; font-size: 14px; transition: all 0.2s; }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent2); }
+
+    /* FOOTER */
+    footer { text-align: center; padding: 2rem; color: var(--muted2); font-size: 13px; border-top: 0.5px solid var(--border); }
+    footer span { color: var(--accent); }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      nav ul { gap: 1rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      section { padding: 4rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Christian Jake Colaway</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="tag">✨3rd Year Student, Open to Work</div>
+  <h1>Yo! I'm <span>Christian Jake Colaway
+  </span><br>3rd Year Computer Engineering Student  &<br>Aspiring Developer</h1>
+  <p>I build things for the web. Passionate about creating clean, efficient, and gorgeous digital experiences.</p>
+  <div class="btn-row">
+    <a href="#projects" class="btn btn-primary">View my work</a>
+    <a href="#contact" class="btn btn-outline">Don't Get in touch</a>
+  </div>
+</section>
+
+<section id="about" class="divider">
+  <div class="section-label">Who I am</div>
+  <h2 class="section-title">About me</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a 3rd Year Computer Engineering Student with a passion for technology and problem-solving. I love turning ideas into real-world applications and continuously learning new tools and technologies.</p>
+      <br>
+      <p>When I'm not coding, I enjoy exploring new technologies, cloutchasing,contributing to open source, and collaborating with creative teams.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card"><div class="num">3+</div><div class="lbl">Projects completed</div></div>
+      <div class="stat-card"><div class="num">2024</div><div class="lbl">Expected Graduation Year</div></div>
+      <div class="stat-card"><div class="num">5+</div><div class="lbl">Technologies learned</div></div>
+      <div class="stat-card"><div class="num">100%</div><div class="lbl">Dedicated to growth</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="divider">
+  <div class="section-label">What I know</div>
+  <h2 class="section-title">Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h3>Frontend</h3>
+      <span class="skill-tag">HTML5</span>
+      <span class="skill-tag">CSS3</span>
+      <span class="skill-tag">JavaScript</span>
+      <span class="skill-tag">React</span>
+    </div>
+    <div class="skill-card">
+      <h3>Backend</h3>
+      <span class="skill-tag">Node.js</span>
+      <span class="skill-tag">Backstabbing</span>
+      <span class="skill-tag">REST APIs</span>
+      <span class="skill-tag">SQL</span>
+    </div>
+    <div class="skill-card">
+      <h3>Tools</h3>
+      <span class="skill-tag">Git</span>
+      <span class="skill-tag">GitHub</span>
+      <span class="skill-tag">VS Code</span>
+      <span class="skill-tag">Figma</span>
+    </div>
+    <div class="skill-card">
+      <h3>Soft skills</h3>
+      <span class="skill-tag">Cyberbullying</span>
+      <span class="skill-tag">Manipulation</span>
+      <span class="skill-tag">Problem solving</span>
+    </div>
+  </div>
+</section>
+
+<section id="education" class="divider">
+  <div class="section-label">Academic background</div>
+  <h2 class="section-title">Education</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="tl-dot-col"><div class="dot"></div><div class="tl-line"></div></div>
+      <div class="tl-card">
+        <h3>Bachelor of Science in Computer Engineering</h3>
+        <div class="tl-sub">Naga College Foundation INC.</div>
+        <div class="tl-year">2026 – 2027</div>
+        <p> Focused on software engineering and web development.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-dot-col"><div class="dot"></div></div>
+      <div class="tl-card">
+        <h3>Senior High School — STEM Track</h3>
+        <div class="tl-sub">Unibersidad de sta. Isabel Pili Campus</div>
+        <div class="tl-year">2020 – 2022</div>
+        <p>Science, Technology, Engineering, and Mathematics strand. Developed foundational interest in programming and logic.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="divider">
+  <div class="section-label">Work history</div>
+  <h2 class="section-title">Experience</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="tl-dot-col"><div class="dot"></div><div class="tl-line"></div></div>
+      <div class="tl-card">
+        <h3>Web Development Intern</h3>
+        <div class="tl-sub">Pili Water District</div>
+        <div class="tl-year">June 2026 – July 2026</div>
+        <p>Served FACE and nothing but FACE!</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-dot-col"><div class="dot"></div></div>
+      <div class="tl-card">
+        <h3>Freelance Unemployed</h3>
+        <div class="tl-sub">Unemployed</div>
+        <div class="tl-year">2022 – Present</div>
+        <p>SERVED YOU FACE SINCE 2003</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="divider">
+  <div class="section-label">What I've built</div>
+  <h2 class="section-title">Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-icon">🛒</div>
+      <h3>Online Booking Carwash</h3>
+      <p>A full-stack online Carwash Booking application  with service schdeduling and payment processing.</p>
+      <div class="project-tags">
+        <span class="proj-tag">React</span><span class="proj-tag">Node.js</span><span class="proj-tag">MongoDB</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-icon">📝</div>
+      <h3>Task manager app</h3>
+      <p>A productivity app with drag-and-drop boards, deadlines, and team collaboration.</p>
+      <div class="project-tags">
+        <span class="proj-tag">JavaScript</span><span class="proj-tag">CSS</span><span class="proj-tag">Firebase</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-icon">🌤</div>
+      <h3>Weather dashboard</h3>
+      <p>Real-time weather app using OpenWeather API with city search and forecast charts.</p>
+      <div class="project-tags">
+        <span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">API</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="divider">
+  <div class="section-label">Let's talk</div>
+  <h2 class="section-title">Contact</h2>
+  <div class="contact-box">
+    <h3>Let's work together 💌</h3>
+    <p>I'm currently open to internships, entry-level roles, and freelance opportunities. Feel free to reach out!</p>
+    <div class="contact-links">
+      <a href="mailto:cjcolaway@email.com" class="contact-link">✉ Email me</a>
+      <a href="https://github.com/cjcolaway.com" class="contact-link">⌥ GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Built with <span>♥</span> using HTML & CSS · © 2024 Your Name
+</footer>
+
+</body>
+</html>
